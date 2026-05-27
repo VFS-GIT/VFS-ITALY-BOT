@@ -1,1 +1,0 @@
-export function startBot() { console.log('Bot Telegram simulé démarré'); }
