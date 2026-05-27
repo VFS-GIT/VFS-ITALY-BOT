@@ -1,6 +1,5 @@
 import app from "./app";
-import { logger } from "./lib/logger";
-import { startBot } from "./lib/telegram-bot";
+import { logger } from "./logger";
 
 const rawPort = process.env["PORT"];
 
@@ -16,12 +15,6 @@ if (Number.isNaN(port) || port <= 0) {
   throw new Error(`Invalid PORT value: "${rawPort}"`);
 }
 
-app.listen(port, (err) => {
-  if (err) {
-    logger.error({ err }, "Error listening on port");
-    process.exit(1);
-  }
-
+app.listen(port, () => {
   logger.info({ port }, "Server listening");
-  startBot();
 });
